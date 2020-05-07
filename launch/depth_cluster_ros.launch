@@ -1,0 +1,11 @@
+<launch>
+    
+    <!--- Sim Time -->
+<!--    <param name="/use_sim_time" value="true" />-->
+
+    <!--- Run Rviz-->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find depth_cluster_ros)/rviz/simple_rviz.rviz" />
+
+    <node pkg="depth_cluster_ros" type="depth_cluster_node"    name="depth_cluster_node"    output="screen"/>
+
+</launch>
