@@ -1,7 +1,5 @@
 # depth_clustre_ros
 
-[TOC]
-
 
 
 This is a point cloud clustering segmentation algorithm, including the removal of ground point clouds and the segmentation of point clouds.
@@ -44,25 +42,7 @@ roslaunch depth_cluster_ros depth_cluster_ros.launch
 
 ### Ground Remove
 
-If special terrain such as slopes and depressions is not considered, it is a common ground segmentation idea to treat the ground as a complete plane and fit the equation ![](http://latex.codecogs.com/gif.latex?Ax+By+Cz+D=0)
-
-However, for a simple ground fitting, there are many ways to realize it, such as <img src="https://latex.codecogs.com/gif.latex?Ax&plus;By&plus;Cz&plus;D=0" title="Ax+By+Cz+D=0" /> form (This means that the final minimum fitting equation is<img src="https://latex.codecogs.com/gif.latex?Ax=0" title="Ax=0" />),or <img src="https://latex.codecogs.com/gif.latex?\frac{A}{D}&space;x&plus;\frac{B}{D}&space;y&plus;\frac{C}{D}&space;z&plus;1=0" title="\frac{A}{D} x+\frac{B}{D} y+\frac{C}{D} z+1=0" /> which is <img src="https://latex.codecogs.com/gif.latex?Ax=b" title="Ax=b" />.
-
-Here we use the properties of the plane equation, the first three coefficients (A,B,C) of which are the normal vectors of the plane. And the normal vector can be obtained by principal component analysis (PCA) ,which is more simply to obtain the final ground equation.
-
-**1. exact N lowest points**
-
-In this step, we first need to sort all the points, and then take the n lowest point of  z axis as the ground point. Calculate the coordinate mean of these n points and record it as<a href="https://www.codecogs.com/eqnedit.php?latex=\bar&space;X&space;=&space;(\bar&space;x,&space;\bar&space;y,&space;\bar&space;z)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar&space;X&space;=&space;(\bar&space;x,&space;\bar&space;y,&space;\bar&space;z)" title="\bar X = (\bar x, \bar y, \bar z)" /></a> .
-
-**2. PCA**
-
-Then calculate the covariance matrix M of the n lowest points.(<a href="https://www.codecogs.com/eqnedit.php?latex=M&space;\in&space;\mathbb{R}^{3*3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?M&space;\in&space;\mathbb{R}^{3*3}" title="M \in \mathbb{R}^{3*3}" /></a> ).
-
-Because of the particularity of plane point cloud distribution, the singular value corresponding to the direction of the normal vector of M matrix should be the smallest when it is processed by principal component analysis(PCA).We write it down as n. And <a href="https://www.codecogs.com/eqnedit.php?latex=n=(A,B,C)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n=(A,B,C)" title="n=(A,B,C)" /></a>.
-
-So,we can obtain the paramter D by substituting n and <a href="https://www.codecogs.com/eqnedit.php?latex=\bar&space;x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar&space;x" title="\bar x" /></a> into planar equation.
-
-![](http://39.107.30.202:8080/s/R2rRzKFBpokZDzM/preview)
+![](http://39.107.30.202:8080/s/Z6by7XmHddM6ZC4/preview)
 
 ### Cloud Segmentation
 
