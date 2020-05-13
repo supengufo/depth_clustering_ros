@@ -44,26 +44,25 @@ roslaunch depth_cluster_ros depth_cluster_ros.launch
 
 ### Ground Remove
 
-If special terrain such as slopes and depressions is not considered, it is a common ground segmentation idea to treat the ground as a complete plane and fit the equation cluster_3d.gif$Ax+By+Cz+D=0$.
+If special terrain such as slopes and depressions is not considered, it is a common ground segmentation idea to treat the ground as a complete plane and fit the equation ![](http://latex.codecogs.com/gif.latex?Ax+By+Cz+D=0)
 
-However, for a simple ground fitting, there are many ways to realize it, such as $Ax+By+Cz+D=0$ form (This means that the final minimum fitting equation is $Ax=0$),or $\frac{A}{D}x+\frac{B}{D}y+\frac{C}{D}z+1=0$ which is $Ax=b$.
+However, for a simple ground fitting, there are many ways to realize it, such as ![](http://latex.codecogs.com/gif.latex?Ax+By+Cz+D=0) form (This means that the final minimum fitting equation is ![](http://latex.codecogs.com/gif.latex? Ax=0)),or ![](http://latex.codecogs.com/gif.latex? \frac{A}{D}x+\frac{B}{D}y+\frac{C}{D}z+1=0) which is ![](http://latex.codecogs.com/gif.latex? Ax=b).
 
-Here we use the properties of the plane equation, the first three coefficients ($A,B,C$) of which are the normal vectors of the plane. And the normal vector can be obtained by principal component analysis (PCA) ,which is more simply to obtain the final ground equation.
+Here we use the properties of the plane equation, the first three coefficients (A,B,C) of which are the normal vectors of the plane. And the normal vector can be obtained by principal component analysis (PCA) ,which is more simply to obtain the final ground equation.
 
-**1. exact N lowest points **
+**1. exact N lowest points**
 
-In this step, we first need to sort all the points, and then take the n lowest point of  $z$ axis as the ground point. Calculate the coordinate mean of these $n$ points and record it as $\bar X = (\bar x, \bar y, \bar z)$.
+In this step, we first need to sort all the points, and then take the n lowest point of  z axis as the ground point. Calculate the coordinate mean of these n points and record it as![](http://latex.codecogs.com/gif.latex? \bar X = (\bar x, \bar y, \bar z)) .
 
 **2. PCA**
 
-Then calculate the covariance matrix $M$ of the $n$ lowest points.($M \in \mathbb{R}^{3*3}$).
+Then calculate the covariance matrix M of the n lowest points.(![](http://latex.codecogs.com/gif.latex? M \in \mathbb{R}^{3*3}) ).
 
-Because of the particularity of plane point cloud distribution, the singular value corresponding to the direction of the normal vector of $M$ matrix should be the smallest when it is processed by principal component analysis(PCA).We write it down as $n$. And $n=(A,B,C)$.
+Because of the particularity of plane point cloud distribution, the singular value corresponding to the direction of the normal vector of M matrix should be the smallest when it is processed by principal component analysis(PCA).We write it down as n. And ![](http://latex.codecogs.com/gif.latex? \\ n=(A,B,C)).
 
-So,we can obtain the paramter $D$ by substituting $n$ and $ \bar x$ into planar equation.
-$$
-D=-A \bar x - B\bar y - C\bar z
-$$
+So,we can obtain the paramter D by substituting n and ![](http://latex.codecogs.com/gif.latex? \bar x) into planar equation.
+
+![](http://39.107.30.202:8080/s/R2rRzKFBpokZDzM/preview)
 
 ### Cloud Segmentation
 
