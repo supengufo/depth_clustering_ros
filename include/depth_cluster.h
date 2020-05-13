@@ -10,12 +10,7 @@
 #include <ctime>
 #include <set>
 //ROS
-#include <sensor_msgs/PointCloud2.h>
-#include <opencv2/core/core.hpp>
-#include <cv_bridge/cv_bridge.h>
-
 //PCL
-#include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/filters/filter.h>

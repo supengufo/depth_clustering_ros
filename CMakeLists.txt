@@ -3,16 +3,6 @@ project(depth_cluster_ros)
 ## Compile as C++11, supported in ROS Kinetic and newer
  add_compile_options(-std=c++11)
 
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
-  tf
-)
-catkin_package(
-
-)
-
 ###########
 ## Build ##
 ###########
@@ -27,7 +17,6 @@ include_directories(
 ## Your package locations should be listed before other locations
 include_directories(
  include
-  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -36,9 +25,7 @@ include_directories(
 # )
 
 add_library(depth_cluster include/depth_cluster.cpp)
-target_link_libraries(depth_cluster ${catkin_LIBRARIES} ${PCL_LIBRARIES})
-add_dependencies(depth_cluster ${catkin_EXPORTED_TARGETS} )
-
+target_link_libraries(depth_cluster  ${PCL_LIBRARIES})
 
 add_executable(depth_cluster_node src/main.cpp)
 target_link_libraries(depth_cluster_node depth_cluster)
