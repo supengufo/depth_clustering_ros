@@ -2,6 +2,7 @@
 // Created by alex on 2020/4/12.
 //
 #include <ros/ros.h>
+#include <sensor_msgs/PointCloud2.h>
 #include <depth_cluster.h>
 #include <iostream>
 

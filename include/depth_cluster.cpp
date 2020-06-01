@@ -3,7 +3,6 @@
 //
 #include "depth_cluster.h"
 using namespace std;
-using namespace cv;
 using namespace pcl;
 using namespace Eigen;
 

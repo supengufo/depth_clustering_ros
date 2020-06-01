@@ -15,7 +15,8 @@
 #include <pcl/point_types.h>
 #include <pcl/filters/filter.h>
 #include <pcl/common/centroid.h>
-
+#include <pcl/visualization/cloud_viewer.h>
+#include <pcl_conversions/pcl_conversions.h>
 //Eigen
 #include <Eigen/Dense>
 //using Eigen::MatrixXf;
@@ -27,7 +28,6 @@
 
 using namespace std;
 using namespace pcl;
-using namespace cv;
 
 
 class DepthCluster {
